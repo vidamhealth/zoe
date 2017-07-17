@@ -1,0 +1,31 @@
+Bot was created using Java 8, Amazon Lex, Amazon Lambda and Amazon DynamoDB.
+It is deployed in Facebook for testing.
+
+It is composed by the above Intents
+  1. RequestProfileData 
+    (It is the main menu of the bot. Can be called using the utterances: hi, hello, main, main menu, help, demeter. 
+     It includes 5 slots that actually create the user profile. Slots are first_name:AMAZON.US_FIRST_NAME, age:AMAZON.NUMBER,
+	 gender:AMAZON.Genre, weight:AMAZON.NUMBER, height:AMAZON.NUMBER)
+	 
+  2. ClosingIntent
+    (It is an intent that handles the exit of the bot. It listens for inputs such as exit, bye, thank you, finish
+	 and returns a closing message to user)
+  
+  3. ChangeMyInfo
+    (It is the intent that handles the profile changes from the user. Can be called using the utterances: change my info.
+	 It includes the same slots with RequestProfileData.)
+  
+  4. AddProgressIntent
+    (It is the intent that handles user progress entries. It has one slot, progress_percent:AMAZON.NUMBER )
+  
+  5. GetMealPlan
+    (It is the intent that handles meal plan creation for the user. Can be called using the utterances: create a new plan, give me a new meal plan,
+     new plan, new meal plan. It has one slot, plan_type:plan_type(It's a custom slot that should get one of the three following values: gain weight, loose weight, maintain weight))
+  
+  6. GetRecipesIntent
+    (It is the intent that handles the find recipe functionality, returning a healthy meal recipe.Can be called using the utterances: find me a meal, find recipe, find me a recipe,
+	 browse recipe, recommend me a recipe. It has one slot, meal_type:meal_ype(It's a custom slot that should get one of the three following values:dinner, breakfast, lunch))
+  
+  7. MyWeeklyPlan
+    (It is the intent that handles the request of user to see his/her meal plan if there is an active one. Can be called using the utterances: view my plan, get my weekly plan, check my plan.
+	 It has one slot, plan_day:AMAZON.DayOfWeek, which is the day of the week the user wants to see the meal plan)
